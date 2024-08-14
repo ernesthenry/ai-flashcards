@@ -17,7 +17,9 @@ export default function Flashcard() {
   
     const handleCardClick = (id) => {
         router.push(`/flashcard?id=${id}`)
-      }
+    }
+
+    
     useEffect(() => {
         async function getFlashcards() {
           if (!user) return
