@@ -5,7 +5,7 @@ import { useState ,useEffect} from 'react'
 import { useUser } from '@clerk/nextjs'
 import { useSearchParams } from 'next/navigation'
 import { collection, doc, getDocs } from 'firebase/firestore'
-import { db } from '../firebase'
+import { db } from '../../firebase'
 import {
   Container,
   Typography,

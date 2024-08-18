@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import { useUser } from '@clerk/nextjs'
 import { doc, collection, getDoc, writeBatch } from 'firebase/firestore'
-import { db } from '../firebase'
+import { db } from '../../firebase'
 
 import {
   Container,
