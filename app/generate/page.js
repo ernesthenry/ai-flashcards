@@ -163,9 +163,9 @@ export default function Generate() {
                 Save
                 </Button>
             </DialogActions>
-            </Dialog>
-            </Box>
-            )}
-    </Container>
+        </Dialog>
+    </Box>
+  )}
+  </Container>
   )
 }
