@@ -1,4 +1,11 @@
-import { useState } from 'react'
+'use client'
+
+
+import { useState ,useEffect} from 'react'
+import { useUser } from '@clerk/nextjs'
+import { useSearchParams } from 'next/navigation'
+import { collection, doc, getDocs } from 'firebase/firestore'
+import { db } from '../firebase'
 import {
   Container,
   Typography,
@@ -9,6 +16,11 @@ import {
   Box
 } from '@mui/material'
 
+
+
+
+
+
 export default function Flashcard() {
   const { isLoaded, isSignedIn, user } = useUser()
   const [flashcards, setFlashcards] = useState([])
@@ -16,6 +28,9 @@ export default function Flashcard() {
 
   const searchParams = useSearchParams()
   const search = searchParams.get('id')
+
+
+
 
     const handleCardClick = (id) => {
       setFlipped((prev) => ({
@@ -41,7 +56,7 @@ export default function Flashcard() {
     }, [search, user])
 
     return (
-      <Container maxWidth="md">
+      <Container maxWidth="md" >
         <Grid container spacing={3} sx={{ mt: 4 }}>
           {flashcards.map((flashcard) => (
             <Grid item xs={12} sm={6} md={4} key={flashcard.id}>

@@ -1,4 +1,12 @@
-import { useState } from 'react'
+'use client'
+
+
+import { doc, collection, getDoc, setDoc } from 'firebase/firestore'
+import { db } from '../firebase' 
+import { useRouter } from 'next/router'
+import { useState, useEffect } from 'react'
+import { useUser } from '@clerk/nextjs'
+
 import {
   Container,
   Typography,

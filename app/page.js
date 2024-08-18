@@ -1,3 +1,5 @@
+'use client'
+
 import { useState } from 'react'
 import {
   Container,
@@ -11,6 +13,8 @@ import {
 
 import { SignedIn } from '@clerk/nextjs'; 
 import { SignedOut } from '@clerk/nextjs'; 
+
+import { UserButton } from '@clerk/nextjs';
 // import UserButton from UserButton; fix this
 
   const handleSubmit = async () => {
@@ -33,49 +37,110 @@ import { SignedOut } from '@clerk/nextjs';
 
 export default function Home() {
   return (
+    <Box
+    sx={{
+      background: 'linear-gradient(180deg, #F0E6DC, #FFFFFF)',
+      minHeight: '100vh',
+      padding:'2rem',
+    }}
+    >
     <>
   <AppBar position="static">
-    <Toolbar>
-      <Typography variant="h6" style={{flexGrow: 1}}>
-        Flashcard SaaS
+    <Toolbar sx={{
+      
+      boxSizing:'border-box',
+     width:'100%',
+     boxShadow:'box-shadow: inset 0px 4px 4px rgba(0, 0, 0, 0.25)',
+     top:0,
+     display:'flex',
+     zIndex: 1200,
+     left:0,
+     position:'fixed',
+     
+
+
+    }}>
+      <Typography variant="h6" style={{flexGrow: 1}} fontFamily={'Poppins'} color={"#5F0D06"}>
+        
       </Typography>
       <SignedOut>
-        <Button color="inherit" href="/sign-in">Login</Button>
-        <Button color="inherit" href="/sign-up">Sign Up</Button>
+        <Button color="inherit" href="/sign-in" 
+         sx={{
+          color:'#5F0D06',
+          borderRadius:'10px',
+          '&:hover': {
+            background:'#FAF4EE',
+            borderRadius:'10px',
+          },
+        }} 
+        >Login</Button>
+        <Button color="inherit" href="/sign-up" 
+        sx={{
+          color:'#5F0D06',
+          borderRadius:'10px',
+          '&:hover': {
+            background:'#FAF4EE',
+            borderRadius:'10px',
+          },
+        }}
+        >Sign Up</Button>
       </SignedOut>
       <SignedIn>
         <UserButton />
       </SignedIn>
     </Toolbar>
 </AppBar>
-    <Box sx={{textAlign: 'center', my: 4}}>
-      <Typography variant="h2" component="h1" gutterBottom>
-        Welcome to Flashcard SaaS
+    <Box sx={{
+      textAlign: 'center',
+       my: 4,
+       marginTop: '15%',
+
+    }}>
+      <Typography variant="h3" component="h1" gutterBottom fontFamily={'Poppins'} color={"#333333"}
+      sx={{
+        left: '567px',
+        top: '312px',
+        fontStyle: 'normal',
+        fontWeight: 'bold',
+        lineHeight: '48px',
+        marginBottom:'32px',
+        fontsize:'16px',
+      }}
+      >
+        Welcome to Flashca
       </Typography>
-      <Typography variant="h5" component="h2" gutterBottom>
-        The easiest way to create flashcards from your text.
+      <Typography variant="h5" component="h2" gutterBottom fontFamily={'Poppins'}
+      sx={{
+        fontSize: '24px',
+        fontWeight:'regular',
+        marginBottom:' 32px'
+      }}
+      >
+      you're new study buddy
       </Typography>
-      <Button variant="contained" color="primary" sx={{mt: 2, mr: 2}} href="/generate">
+      <Button variant="contained" color="primary"  href="/generate"
+      sx={{
+        mt: 1, 
+        background:'#5F0D06',
+        borderRadius: '10px',
+        '&:hover': {
+          background:'#FAF4EE',
+          color:'#5F0D06',
+          border: '#ffffff',
+
+        },
+
+      }}
+      
+      >
         Get Started
       </Button>
-      <Button variant="outlined" color="primary" sx={{mt: 2}}>
-        Learn More
-      </Button>
+    
     </Box>
+    
 
-    <Box sx={{my: 6}}>
-      <Typography variant="h4" component="h2" gutterBottom>Features</Typography>
-      <Grid container spacing={4}>
-        {/* Feature items */}
-      </Grid>
-    </Box>
-
-    <Box sx={{my: 6, textAlign: 'center'}}>
-    <Typography variant="h4" component="h2" gutterBottom>Pricing</Typography>
-    <Grid container spacing={4} justifyContent="center">
-      {/* Pricing plans */}
-    </Grid>
-  </Box>
+  
   </>
+  </Box>
   );
 }

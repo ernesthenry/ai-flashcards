@@ -1,6 +1,10 @@
 'use client'
 
 import { useState } from 'react'
+import { useUser } from '@clerk/nextjs'
+import { doc, collection, getDoc, writeBatch } from 'firebase/firestore'
+import { db } from '../firebase'
+
 import {
   Container,
   TextField,
@@ -16,6 +20,7 @@ import {
   DialogContent,
   DialogTitle
 } from '@mui/material'
+
 
 export default function Generate() {
   const [text, setText] = useState('')
@@ -41,6 +46,7 @@ export default function Generate() {
       }
   
       const data = await response.json()
+      console.log('Received data:', data); // Debugging line
       setFlashcards(data)
     } catch (error) {
       console.error('Error generating flashcards:', error)
@@ -86,31 +92,84 @@ export default function Generate() {
     }
   }
 
-
+  console.log(flashcards)
 
   return (
-    <Container maxWidth="md">
-      <Box sx={{ my: 4 }}>
-        <Typography variant="h4" component="h1" gutterBottom>
-          Generate Flashcards
+    <Box
+      sx={{
+        background: '#F9F3F0',
+        minHeight: '100vh',
+        padding: '2rem',
+        display: 'flex',
+        flexDirection: 'column',
+        alignItems: 'center',
+        justifyContent: 'center',
+      }}>
+    
+      <Box sx={{ position: 'relative',
+          width: '500px',
+          height: '600px',
+          background: ' #FFFFFF',
+          boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+          borderRadius: '10px',
+          border:'#D3D3D3',
+          p: '2rem',
+          display: 'flex',
+          flexDirection: 'column',
+          alignItems: 'center', }}>
+        <Typography variant="h4" component="h1" gutterBottom fontSize={20} fontFamily={"Poppins"}
+        sx={{
+          color: '#5F0D06',
+          
+          
+
+        }}
+        >
+          Create Flashcards
+          
         </Typography>
         <TextField
           value={text}
           onChange={(e) => setText(e.target.value)}
           label="Enter text"
+          fontFamily="Poppins"
           fullWidth
           multiline
-          rows={4}
+          rows={2}
           variant="outlined"
-          sx={{ mb: 2 }}
+          sx={{ mb: 2,
+            boxSizing: 'border-box',
+            background: '#FFFFFF',
+            borderRadius:'8px',
+            border: '1px solid #D3D3D3',
+          }}
         />
         <Button
           variant="contained"
           color="primary"
           onClick={handleSubmit}
           fullWidth
+          
+          sx={{
+            boxSizing:'border-box',
+            width:'107px',
+            height:'33px',
+            background:'#5F0D06',
+            border: '1px solid #5F0D06',
+            boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.25)',
+            borderRadius: '8px',
+            '&: hover':{
+                background:'#FAF4EE',
+                boder:'#FFFFFF',
+                color:'#5F0D06',
+            },
+            
+            //do hover
+
+          }}
+
         >
-          Generate Flashcards
+          Create
         </Button>
       </Box>
       
@@ -166,6 +225,7 @@ export default function Generate() {
             </Dialog>
             </Box>
             )}
-    </Container>
+    
+    </Box>
   )
 }
