@@ -15,7 +15,6 @@ import { SignedIn } from '@clerk/nextjs';
 import { SignedOut } from '@clerk/nextjs'; 
 
 import { UserButton } from '@clerk/nextjs';
-// import UserButton from UserButton; fix this
 
   const handleSubmit = async () => {
     const checkoutSession = await fetch('/api/checkout_sessions', {

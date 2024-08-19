@@ -1,4 +1,4 @@
-// File: /workspaces/ai-flashcards/app/page.js
+// File: /home/kato/headstarter/flashcard-saas/app/page.js
 import * as entry from '../../../app/page.js'
 import type { ResolvingMetadata, ResolvingViewport } from 'next/dist/lib/metadata/types/metadata-interface.js'
 
