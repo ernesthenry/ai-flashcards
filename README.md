@@ -37,3 +37,8 @@ To get started with Flashcard SaaS, follow these steps:
    ```bash
    git clone https://github.com/your-username/flashcard-saas.git
    cd flashcard-saas
+   npm install
+   npm run dev
+
+```
+
