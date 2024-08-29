@@ -1,28 +1,30 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Flashcard SaaS
 
-## Getting Started
+Flashcard SaaS is a modern web application designed to help students and professionals create, manage, and study flashcards efficiently. This application utilizes Next.js, React, Clerk, Firebase, and Stripe to provide a scalable and powerful platform for flashcard management. Additionally, it integrates with OpenAI to generate flashcards from user-provided text.
 
-First, run the development server:
+## Features
+
+- **Flashcard Generation**: Create flashcards using AI from a text input.
+- **User Authentication**: Secure sign-up and login via Clerk.
+- **Subscription Management**: Manage subscriptions with Stripe.
+- **Firebase Integration**: Store user data and flashcard sets.
+- **Responsive Design**: User-friendly interface with Material-UI.
+
+
+## Setup
+
+Follow these steps to set up and run the Flashcard SaaS application locally.
+
+### 1. Install Node.js and npm
+
+If you haven't already, download and install Node.js (which includes npm) from the [official Node.js website](https://nodejs.org/). Choose the LTS (Long Term Support) version for your operating system.
+
+### 2. Create a Next.js Project
+
+Open your terminal and run the following commands:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
-
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
-
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
-
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+npx create-next-app flashcard-saas
+cd flashcard-saas
 
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
